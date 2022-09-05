@@ -23,12 +23,13 @@
           solo
           name="input-7-4"
           placeholder="Notes"
+          @keyup.enter="saveNotes"
          
         />
       </v-col>
 
       <v-col>
-        <v-btn color="primary">
+        <v-btn @click="saveNotes">
             Save
         </v-btn>
       </v-col>
@@ -42,6 +43,7 @@ export default {
 
     data() {
         return {
+           
             title: '',
             content: ''
             
@@ -53,7 +55,33 @@ export default {
         console.log(this.$refs)
         this.$refs.noteContent.focus()
         // document.getElementById('notes').focus();
-      }
+      },
+      saveNotes() {
+        // save note and navigate to the All notes page
+        let noteId = _.uniqueId(); 
+        
+        // Printing the output  
+        let newNote = {
+            id: noteId,
+            title: this.title,
+            content: this.content
+
+        }
+        this.$store.commit('notes/addNote', newNote)
+
+        this.$nextTick(() => {
+          this.$router.push('/notes')
+        })
+
+
+        // this.todos.push(addTodo)
+        //     this.newTodo = ''
+
+
+      },
+      // deleteTodo(index) {
+      //       this.todos.splice(index, 1)
+      //   }
     }
 }
 

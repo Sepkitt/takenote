@@ -1,16 +1,21 @@
 <template>
     <div>
-    All notes
+        All notes
+
+        {{notes}}
 
     </div>
 </template>
 
 <script>
-    export default {
-        
-    }
+export default {
+    computed: {
+        notes() {
+            return this.$store.state.notes.notes
+        }
+    },
+}
 </script>
 
 <style lang="scss" scoped>
-
 </style>
