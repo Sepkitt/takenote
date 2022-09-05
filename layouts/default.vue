@@ -2,8 +2,8 @@
   <div id="app">
     <nav>
       <nuxt-link to="/">Home</nuxt-link> |
-      <nuxt-link to="/todos">Tasks</nuxt-link> |
-      <router-link to="/add">Add Todo</router-link>
+      <nuxt-link to="/notes">Tasks</nuxt-link> |
+      <router-link to="/notes/new">New</router-link>
 
     </nav>
     <nuxt/>

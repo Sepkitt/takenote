@@ -1,6 +1,8 @@
 <template>
     <div>
-        Edit
+        
+        <Notes/>
+
     </div>
 </template>
 

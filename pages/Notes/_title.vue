@@ -1,15 +1,14 @@
 <template>
     <div>
-
-    Create a new Note
-
+        <NotesForm/>
     </div>
 </template>
 
 <script>
+import NotesForm from '~/components/NotesForm.vue';
     export default {
-        
-    }
+    components: { NotesForm }
+}
 </script>
 
 <style lang="scss" scoped>

@@ -2,7 +2,8 @@
   <div class="home">
     <!-- Landing page -->
     <!-- <img alt="Vue logo" src="../assets/logo.svg"> -->
-    Take Note
+   <h1>Home</h1>
+    
   </div>
 </template>
 
