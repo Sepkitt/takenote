@@ -31,6 +31,7 @@
     "cypress": "^10.7.0",
     "jest": "^27.4.4",
     "nuxt-vite": "^0.3.5",
-    "vue-jest": "^3.0.4"
+    "vue-jest": "^3.0.4",
+    "vuex-mock-store": "^0.0.8"
   }
 }
