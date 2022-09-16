@@ -1,44 +1,45 @@
 <template>
-    <div>
-        All notes
+    <v-row justify="center">
 
-        <v-row justify="center">
-            <v-col v-for="note in notes" :key="note.id">
-              <nuxt-link :to="`/notes/${note.title}`">
-              
-                <v-card  height="250px" width="150px">
-                    <v-row>
-                        <v-col>
-                            <v-card-title>
-                                {{note.title}}
-                            </v-card-title>
+        <v-col v-for="note in notes" :key="note.index" cols="4">
+
+            <nuxt-link :to="`/notes/${note.title}`">
+
+                <v-card class="noteCard" flat height="136px" width="198px" color="itemBgColor">
+                    <v-row no-gutters>
+                        <v-col class="d-flex justify-end pa-2">
+                            <v-icon color="primary" v-text="'la-edit'" large />
                         </v-col>
-                    
+                        <v-col cols="12">
+                            <v-card-title class="title--text" v-text="note.title" />
+
+                            <v-card-subtitle class="text--text" :class="isNotesPath === true ? 'text-truncate' : ''"
+                                v-text="note.content" />
+
+                        </v-col>
+
                     </v-row>
-                
-                
                 </v-card>
-              
-              </nuxt-link>
-            </v-col>
 
-        </v-row>
+            </nuxt-link>
+        </v-col>
 
-    </div>
+    </v-row>
 </template>
 
 <script>
 export default {
+    name: 'Notes',
     props: {
         notes: {
             type: Array
         }
     },
     computed: {
-      
+        isNotesPath() {
+            return this.$route.path === '/notes' ? true : false
+        }
+
     },
 }
 </script>
-
-<style lang="scss" scoped>
-</style>

@@ -18,18 +18,17 @@
       state.notes = notes
     },
     UPDATE_NOTE(state, payload)  {
-      state.notes = state.notes.map((i) => {
-        if(i.id == payload.id) {
-          return payload
+      // state.notes = [
+      //   ...state.notes.map(note =>
+      //     note.id !== payload.id ? note : {...item, ...payload})
+      // ]
+      
+      state.notes = state.notes.map((note) => {
+        if(note.id == payload.id) {
+          return Object.assign({}, note, payload)
         }
-        return i;
+        return note;
       })
-      // state.notes.forEach(item => {
-      //   if(item.id === note.id) {
-      //     item = note
-      //   }
-      // });
-
     }
   }
   

@@ -12,7 +12,7 @@
       </v-col>
 
       <v-col>
-        <v-btn class="note-saveBtn" @click="$emit('save', value)">
+        <v-btn color="primary" class="note-saveBtn" @click="$emit('save', value)">
           Save
         </v-btn>
       </v-col>

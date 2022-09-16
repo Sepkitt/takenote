@@ -1,8 +1,8 @@
 <template>
     <div>
-    <h1>Create Note</h1>
+        <h1>Create Note</h1>
         <NotesForm @save="saveNotes" v-model="note" />
-     
+
     </div>
 </template>
 
@@ -48,4 +48,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 </style>

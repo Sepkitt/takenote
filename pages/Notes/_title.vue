@@ -34,6 +34,7 @@ export default {
         saveNote() {
  
             this.$store.commit('notes/UPDATE_NOTE', this.editNote)
+            console.log('Edit note',this.editNote)
             this.$nextTick(() => {
                 this.$router.push('/notes')
             })

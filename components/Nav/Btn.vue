@@ -1,15 +1,15 @@
 <template>
-    <v-sheet flat v-bind="$attrs" v-on="{
+    <v-sheet color="transparent" flat v-bind="$attrs" v-on="{
       ...$listeners
     }">
         <v-row dense justify="center" align="center">
             <v-col cols="12" class="d-flex justify-center">
 
-                <v-icon x-large v-text="icon" />
+                <v-icon size="30" :color="isActive === 'item--active' ? 'primary' : ''" v-text="icon" />
             </v-col>
 
             <v-col cols="12">
-                <div class="text-center text--upper">{{title}}</div>
+                <div :class="isActive" class=" text-center text--upper">{{title}}</div>
 
             </v-col>
         </v-row>
@@ -31,6 +31,16 @@ export default {
         title: {
             type: String,
             default: 'place-holder'
+        },
+        path: {
+            type: String,
+
+        }
+    },
+    computed: {
+        isActive() {
+            const active = this.path === this.$route.path ? 'item--active' : ''
+            return active
         }
     }
 
