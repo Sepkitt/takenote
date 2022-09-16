@@ -1,32 +1,36 @@
 <template>
 
-    <v-row justify="center">
-        <div>{{notes.length < 1 ? 'No notes' : ' All notes' }}</div>
-                <v-col cols="5" v-if="notes.length < 1">
-                    <v-img alt="Vue logo" src="/hero_dark.svg" v-if="isDark === true" />
-                    <v-img alt="Vue logo" src="/notes_light.svg" v-else />
+    <div>
+        {{model}}
+        <v-col cols="12" class="titleStyle">
+            <div class="text-center text-h2 text-uppercase ">
+                {{ notes.length < 1 ? 'No notes' : ' All notes' }} </div>
 
-                </v-col>
+        </v-col>
+        <v-row justify="center" align="center">
 
-                <v-col>
-                    {{model}}
+            <v-col cols="4" class="d-flex align-center" v-if="notes.length < 1">
+                <v-img alt="no-note" src="/no_notes.svg" />
+            </v-col>
 
-                    <NoteGroup v-model="model" />
+            <v-col>
 
-                </v-col>
+                <NoteGroup v-model="model" />
+
+            </v-col>
 
 
-    </v-row>
+        </v-row>
 
+
+
+
+    </div>
 </template>
 
 <script>
 export default {
-    // data() {
-    //     return {
-    //         model:
-    //     }
-    // },
+
     computed: {
         // ...mapFields([
         //     'notes.noteGroupModel'
@@ -37,7 +41,7 @@ export default {
                 return this.$store.state.notes.noteGroupModel
             },
             set(value) {
-                this.$store.commit('notes/SET_NOTEGROUPMODEL')
+                // this.$store.commit('notes/SET_NOTEGROUPMODEL')
 
             }
 
@@ -69,5 +73,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.titleStyle {
+    top: 0 !important;
+}
 </style>

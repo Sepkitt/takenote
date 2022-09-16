@@ -1,12 +1,10 @@
 <template>
-  <v-app id="bg" :dark="theme">
+  <v-app id="bg">
     <v-main>
       <v-container fill-height>
-        <v-row justify="center" align="center">
-          <v-col cols="12">
-            <nuxt />
-          </v-col>
-        </v-row>
+
+        <nuxt />
+
 
       </v-container>
 
@@ -48,6 +46,7 @@ export default {
   },
 
   beforeCreate() {
+    // Keep state of theme
     this.$store.commit('app/INITIALIZE_STATE_THEME');
 
     // makes v-model on notes/index update

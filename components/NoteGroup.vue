@@ -1,63 +1,43 @@
 <template>
-    <div>
-        <!-- <v-row align="center" justify="center" v-if="!$vuetify.breakpoint.xs ">
-            <v-btn @click="model--" :disabled="model === 0">
-                <v-icon>la-angle-left</v-icon>
-            </v-btn>
+    <v-row align="center" justify="center" dense>
 
-            <v-btn @click="model++" :disabled="model === last">
-                <v-icon>la-angle-right</v-icon>
-            </v-btn>
-        </v-row> -->
+        <v-col cols="8">
+            <v-window v-model="model" :show-arrows="false" height="100%">
+                <v-window-item v-for="(page, pageIndex) in noteGroup.length" :key="pageIndex">
 
-        <v-row align="center" justify="center" dense>
+                    <Notes :notes="noteGroup[pageIndex]" />
 
-            <v-col cols="8">
-                <v-window v-model="model" hide-delimiters :show-arrows="false" :continuous="false" height="100%">
-                    <v-window-item v-for="(page, pageIndex) in menuGroups.length" :key="pageIndex">
+                </v-window-item>
+            </v-window>
+        </v-col>
+    </v-row>
 
-                        <Notes :notes="menuGroups[pageIndex]" />
-
-                    </v-window-item>
-                </v-window>
-            </v-col>
-
-
-        </v-row>
-
-
-    </div>
 </template>
   
 <script>
 export default {
     name: 'NoteGroup',
     props: ['value'],
-    data() {
-        return {
-            // model: 0,
-        };
-    },
     computed: {
         model: {
-      get() {
-        return this.value
-      },
-      set(val) {
-        this.$emit('input', val)
-      },
-    },
+            get() {
+                return this.value
+            },
+            set(val) {
+                this.$emit('input', val)
+            },
+        },
         notes() {
             return this.$store.state.notes.notes;
         },
-        isNotesPath() {
-            return this.$route.path === "/notes" ? true : false;
-        },
+        // isNotesPath() {
+        //     return this.$route.path === "/notes" ? true : false;
+        // },
         last() {
-            let last_element = this.menuGroups.length - 1;
+            let last_element = this.noteGroup.length - 1;
             return last_element;
         },
-        menuGroups() {
+        noteGroup() {
             // Cards per paged based on screen size
             var chunk_size = this.$vuetify.breakpoint.sm === true ? 4 :
                 this.$vuetify.breakpoint.md ? 6 :
@@ -70,21 +50,10 @@ export default {
             });
             return groups;
         },
-        width() {
-            switch (this.$vuetify.breakpoint.name) {
-                case "xs":
-                    return "100%"; //  < 600px
-                case "sm":
-                    return "100%"; //  600px > < 960px
-                case "md":
-                    return "100%"; //  960px > < 1264*
-                case "lg":
-                    return "100%"; //1264 > < 1904px*
-                case "xl":
-                    return "1080px"; //> 1904px*
-            }
-        }
+
+
     },
+
 }
 </script>
   

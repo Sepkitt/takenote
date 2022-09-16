@@ -17,9 +17,9 @@
 
       }
   },
-    // SET_NOTEGROUP_MODEL(state, noteGroupModel) {
-    //   state.noteGroupModel = noteGroupModel
-    // },
+    SET_NOTEGROUP_MODEL(state, noteGroupModel) {
+      state.noteGroupModel = noteGroupModel
+    },
     SET_NOTES(state, notes) {
       state.notes = notes
     },

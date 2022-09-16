@@ -1,7 +1,21 @@
 <template>
     <div>
-        <h1>Create Note</h1>
-        <NotesForm @save="saveNotes" v-model="note" />
+        <div>
+            <h1>Create Note</h1>
+        </div>
+        <v-container fluid fill-height>
+            <v-row justify="center">
+                <v-col class="d-flex justify-center align-center">
+
+
+                    <NotesForm @save="saveNotes" v-model="note" />
+
+
+                </v-col>
+
+            </v-row>
+
+        </v-container>
 
     </div>
 </template>

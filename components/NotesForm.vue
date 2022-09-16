@@ -1,6 +1,7 @@
 <template>
-  <v-container fluid>
-    <v-row>
+  <v-card color="itemBgColor" :maxWidth="maxWidth" class="pa-5">
+
+    <v-row justy="center" align="center">
       <v-col cols="12">
         <v-text-field ref="noteTitle" required class="note-title" solo v-model="inputVal.title" placeholder="Title"
           @keydown.enter="focusOnNoteContent" />
@@ -18,7 +19,7 @@
       </v-col>
 
     </v-row>
-  </v-container>
+  </v-card>
 </template>
 
 <script>
@@ -35,6 +36,20 @@ export default {
         this.$emit('input', val)
       },
     },
+    maxWidth() {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs':
+          return '100%'
+        case 'sm':
+          return '90%'
+        case 'md':
+          return '80%'
+        case 'lg':
+          return '70%'
+        case 'xl':
+          return '50%'
+      }
+    }
 
   },
 
