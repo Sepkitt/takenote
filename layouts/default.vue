@@ -12,18 +12,27 @@
 
     </v-main>
     <v-footer color="transparent" absolute class="mb-16">
-      <NavGroup @nextNote="model++" @prevNote="model--" />
+      <NavGroup @nextNote="increment" @prevNote="decrement" />
     </v-footer>
   </v-app>
 </template>
   
   
 <script>
+  import { mapActions } from 'vuex'
+
 export default {
   data() {
     return {
 
     }
+  },
+
+  methods: {
+    ...mapActions('notes',[
+      'increment', 
+      'decrement' 
+    ]),
   },
 
   computed: {

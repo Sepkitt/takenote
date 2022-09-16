@@ -29,6 +29,13 @@
         }
         return note;
       })
+    },
+
+    INCREMENT_NOTEGROUP_MODEL(state)  {
+      
+    },
+    DECREMENT_NOTEGROUP_MODEL(state) {
+      
     }
   }
   
@@ -42,10 +49,24 @@
     
       },
   }
+
+  const actions = {
+    increment({commit}) {
+      console.log('increment')
+      commit('INCREMENT_NOTEGROUP_MODEL')
+    },
+    decrement({commit}) {
+      console.log('Decrement')
+
+      commit('DECREMENT_NOTEGROUP_MODEL')
+    }
+  }
+  
   
   export default {
     state,
     mutations,
-    getters
+    getters,
+    actions
   }
   

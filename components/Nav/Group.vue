@@ -37,13 +37,9 @@ export default {
                 { title: name, icon: icon, click: this.toggleTheme }
             ];
 
-            if (this.$route.path === '/notes') {
+            if (this.$route.path === '/notes' && this.notes.length > 6) {
                 return nav
-            } else if (this.notes.length < 7) {
-                console.log(this.notes.length)
-                return nav2
-
-            }
+            } 
             else {
                 return nav2
                 // let removeBtns = [
@@ -66,7 +62,6 @@ export default {
     },
     methods: {
         emitNoteClick(nav) {
-            console.log({ nav })
             nav.title === 'Next' ? this.$emit('nextNote') : this.$emit('prevNote')
 
         },

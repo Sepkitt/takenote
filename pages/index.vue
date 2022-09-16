@@ -6,6 +6,8 @@
       <v-img alt="Vue logo" src="/hero_light.svg" v-else />
 
     </v-col>
+    <!-- {{process.env.npm_package_version
+}} -->
     <!-- <h1 class="font-weight-regular text-lgAndUp-h1 text-md-h2 text-h3 title--text text-center">TAKE NOTE
     </h1> -->
   </v-row>
@@ -19,6 +21,7 @@ export default {
 
   computed: {
     isDark() {
+      console.log(process)
 
       return this.$vuetify.theme.isDark;
     },
