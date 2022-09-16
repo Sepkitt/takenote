@@ -1,11 +1,25 @@
 
   
   const state = () => ({
-    notes: []
+    notes: [],
+    noteGroupModel:0
   
   });
   
   const mutations = {
+    INITIALIZE_STATE_THEME(state) {
+      // Check if the ID exists
+      if(localStorage.getItem('store')) {
+      // Replace the state object with the stored item
+          this.replaceState(
+              Object.assign(state, JSON.parse(localStorage.getItem('store')))
+          )
+
+      }
+  },
+    // SET_NOTEGROUP_MODEL(state, noteGroupModel) {
+    //   state.noteGroupModel = noteGroupModel
+    // },
     SET_NOTES(state, notes) {
       state.notes = notes
     },
@@ -32,9 +46,15 @@
     },
 
     INCREMENT_NOTEGROUP_MODEL(state)  {
+      console.log('Mutation Increment')
+
+      state.noteGroupModel++
       
     },
     DECREMENT_NOTEGROUP_MODEL(state) {
+      console.log('Mutation decrement')
+      state.noteGroupModel--
+
       
     }
   }

@@ -1,18 +1,20 @@
 <template>
 
     <v-row justify="center">
-    <div>{{notes.length < 1 ? 'No notes' : ' All notes'}}</div>
-        <v-col cols="5" v-if="notes.length < 1">
-      <v-img alt="Vue logo" src="/hero_dark.svg" v-if="isDark === true" />
-      <v-img alt="Vue logo" src="/notes_light.svg" v-else />
+        <div>{{notes.length < 1 ? 'No notes' : ' All notes' }}</div>
+                <v-col cols="5" v-if="notes.length < 1">
+                    <v-img alt="Vue logo" src="/hero_dark.svg" v-if="isDark === true" />
+                    <v-img alt="Vue logo" src="/notes_light.svg" v-else />
 
-    </v-col>
+                </v-col>
 
-    <v-col>
-        <NoteGroup v-model="model" />
+                <v-col>
+                    {{model}}
 
-    </v-col>
-      
+                    <NoteGroup v-model="model" />
+
+                </v-col>
+
 
     </v-row>
 
@@ -20,20 +22,41 @@
 
 <script>
 export default {
-    data() {
-        return {
-            model: 0
-        }
-    },
+    // data() {
+    //     return {
+    //         model:
+    //     }
+    // },
     computed: {
-        isDark() {
-      console.log(process)
+        // ...mapFields([
+        //     'notes.noteGroupModel'
+        // ]),
+        model: {
 
-      return this.$vuetify.theme.isDark;
-    },
+            get() {
+                return this.$store.state.notes.noteGroupModel
+            },
+            set(value) {
+                this.$store.commit('notes/SET_NOTEGROUPMODEL')
+
+            }
+
+        },
+        isDark() {
+            console.log(process)
+
+            return this.$vuetify.theme.isDark;
+        },
 
         notes() {
             return this.$store.state.notes.notes;
+        }
+    },
+
+    watch: {
+        //if the state has been change eg. a commit was made to the store, run fetch function
+        model() {
+            this.increment
         }
     },
 

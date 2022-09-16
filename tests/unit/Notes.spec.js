@@ -1,34 +1,66 @@
-import {shallowMount } from '@vue/test-utils'
+import {shallowMount, createLocalVue } from '@vue/test-utils'
 import NotesForm from '@/components/NotesForm.vue'
-import { Store } from 'vuex-mock-store'
+// import  mutations  from '~/store/notes/index'
+import Vuex from 'vuex'
+import notesModule from '~/store/notes'
+import { jest } from '@jest/globals'
+import notes from '~/store/notes'
+// Creates local copy of Vue
+const localVue = createLocalVue()
+localVue.use(Vuex)
+
 
 // create the Store mock
-const store = new Store ({
-    state: {
-            notes: {
-                notes: [
-                 
-                ]}},
-  })
+// const store = new Store ({
+//     state: {
+//             notes: {
+//                 notes: [],
+//                 noteGroupModel:0
+
+//             }},
+//   })
   
   // add other mocks here so they are accessible in every component
   // could also be added globally in a setup.js file
-  const mocks = {
-    $store: store,
-  }
+//   const mocks = {
+//     $store: store,
+//   }
 
     // reset spies, initial state and getters
-  afterEach(() => store.reset())
+//   afterEach(() => store.reset())
   
 
 describe('NotesForm.vue', () => {
+    let actions
+    let state
+    let mutations
+    let store
     let wrapper;
+
     beforeEach(() => {
+        state = {notes: [], noteGroupModel: 0}
+        actions = {
+            increment: jest.fn(),
+            decrement: jest.fn()
+        }
+
+        store = new Vuex.Store({
+            modules: {
+                notesModule: {
+                    state,
+                    actions,
+                    mutations: notesModule.mutations,
+                    getters:notesModule.getters,
+                    namespaced:true
+                }
+            }
+        })
+
         wrapper = shallowMount(NotesForm, {
             propsData: {
                 value: ''
             },
-            mocks
+            // mocks
         })
     })
     it('renders initial prop values', () => {
@@ -43,35 +75,44 @@ describe('NotesForm.vue', () => {
         expect(wrapper.vm.focusOnNoteContent).toHaveBeenCalled();   //check if function has been called
     
     });
-
-        let noteTitle;
-        let noteContent;
-        let newNote;
-        beforeEach(() => {
           
-            noteTitle = wrapper.find(".note-title"); // Find the input-field
-            noteTitle.element.value = "new note"; // set v-model to New Todo
-            noteTitle.trigger("input"); // Trigger the input
-            noteContent = wrapper.find(".note-content"); 
-            noteContent.element.value = "Sample note content"
-            noteContent.trigger("input")
-            newNote = [{
+    
+    it('should save new note to store', async() => {
+        const newNote = [{
                 id: 1,
                 title: "Note title",
                 content: "Note content here"
-            }]
-    
-           
-
-        })
-    
-    it('should save new note', async() => {
+        }]
+        // Mock function
         wrapper.vm.saveNotes = jest.fn();
         await wrapper.vm.$nextTick();
+        // Trigger click event
         await wrapper.find(".note-saveBtn").trigger("click");
-        store.state.notes.notes = newNote;
-        expect(newNote).toBe(store.state.notes.notes);
+        // Mock state
+        state.notes = newNote;    
+        // console.log('mutations',store)
+
+        expect(state.notes).toBe(newNote);
     })
+
+    
 
     })
 
+// describe('Notes Mutations', () => {
+    
+//     it('INCREMENT_NOTEGROUP_MODEL should mutate the state',() => {
+//             // mock state
+
+//         const state = { noteGroupModel:0}
+//             // apply mutation
+
+//             mutations.INCREMENT_NOTEGROUP_MODEL(state)
+//             // assert result
+//         expect(state.noteGroupModel).to.equal(1)
+
+
+
+
+//     } )
+// })

@@ -12,14 +12,14 @@
 
     </v-main>
     <v-footer color="transparent" absolute class="mb-16">
-      <NavGroup @nextNote="increment" @prevNote="decrement" />
+      <NavGroup @nextNote="increment()" @prevNote="decrement()" />
     </v-footer>
   </v-app>
 </template>
   
   
 <script>
-  import { mapActions } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
   data() {
@@ -29,30 +29,33 @@ export default {
   },
 
   methods: {
-    ...mapActions('notes',[
-      'increment', 
-      'decrement' 
+    ...mapActions('notes', [
+      'increment',
+      'decrement'
     ]),
   },
 
   computed: {
-    theme() {
-      console.log('computed')
-      if (localStorage.getItem("store")) {
-        let local = JSON.parse(localStorage.getItem("store"));
-        let { useDarkMode } = local.app
-        return useDarkMode
+    // theme() {
+    //   if (localStorage.getItem("store")) {
+    //     let local = JSON.parse(localStorage.getItem("store"));
+    //     let { useDarkMode } = local.app
+    //     return useDarkMode
 
-      }
-      return true
-    }
+    //   }
+    //   return true
+    // }
   },
 
   beforeCreate() {
     this.$store.commit('app/INITIALIZE_STATE_THEME');
+
+    // makes v-model on notes/index update
+    this.$store.commit('notes/INITIALIZE_STATE_THEME');
+
   },
   mounted() {
-    this.theme
+    // this.theme
 
 
 

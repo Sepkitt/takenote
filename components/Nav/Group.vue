@@ -2,7 +2,7 @@
     <v-card class="mx-auto" color="transparent" flat>
         <v-row>
             <v-col class="pa-5" v-for="nav in navigation" :key="nav.index">
-                <NavBtn :title="nav.title" :icon="nav.icon" @click="!nav.path ? nav.click(nav) : dynamicCLick(nav)"
+                <NavBtn :title="nav.title" :icon="nav.icon" @click="!nav.path ? nav.click(nav) : navigate(nav)"
                     :to="nav.path" :path="nav.path" />
             </v-col>
         </v-row>
@@ -23,37 +23,15 @@ export default {
             let icon = !this.isDark ? 'la-moon' : 'la-sun'
             let name = !this.isDark ? 'Dark' : 'Light'
             const nav = [
-                { title: "Home", icon: "la-home", path: '/' },
-                { title: "Notes", icon: "la-newspaper", path: '/notes' },
-                { title: "Prev", icon: "la-angle-left", click: this.emitNoteClick },
-                { title: "Next", icon: "la-angle-right", click: this.emitNoteClick },
-                { title: "New", icon: "la-notes-medical", path: '/notes/new' },
-                { title: name, icon: icon, click: this.toggleTheme }
-            ];
-            const nav2 = [
-                { title: "Home", icon: "la-home", path: '/' },
-                { title: "Notes", icon: "la-newspaper", path: '/notes' },
-                { title: "New", icon: "la-notes-medical", path: '/notes/new' },
-                { title: name, icon: icon, click: this.toggleTheme }
+                { title: "Home", icon: "la-home", path: '/' , visible: true},
+                { title: "Notes", icon: "la-newspaper", path: '/notes' , visible: true},
+                { title: "Prev", icon: "la-angle-left", click: this.emitNoteClick , visible: true},
+                { title: "Next", icon: "la-angle-right", click: this.emitNoteClick , visible: true},
+                { title: "New", icon: "la-notes-medical", path: '/notes/new', visible: true },
+                { title: name, icon: icon, click: this.toggleTheme , visible: true}
             ];
 
-            if (this.$route.path === '/notes' && this.notes.length > 6) {
-                return nav
-            } 
-            else {
-                return nav2
-                // let removeBtns = [
-                //     { title: "Prev", icon: "la-angle-right", click: this.emitNoteClick },
-                //     { title: "Next", icon: "la-angle-right", click: this.emitNoteClick }
-                // ]
-                //remove prev and next from nav array
-                // let filteredNotes = _.without(nav, ...removeBtns)
-                // console.log(filteredNotes)
-                // let filteredNav = nav.filter(e => !removeBtns.includes(e))
-                // console.log('Home', filteredNav)
-
-
-            }
+            return nav
 
 
 
@@ -67,16 +45,9 @@ export default {
         },
 
 
-        dynamicCLick(nav) {
-            // write a function that will dynamically attach the $router.push(nav.path)
-            // to the navigation computed property
-
-            // dummy function
+        navigate(nav) {
             this.$router.push(nav.path)
-            // this.navigation.forEach((nav) => {
-            //     console.log(nav)
-            //     // this.$router.push(nav.path)
-            // })
+           
 
         },
         toggleTheme() {
