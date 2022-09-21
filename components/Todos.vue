@@ -59,7 +59,6 @@ export default {
     },
     watch: {
         newTodo(newValue) {
-            console.log('newValue: ', newValue)
             if(this.swearWords.includes(newValue.toLowerCase())) {
                 this.newTodo = ''
                 alert(`You must NEVER say ${newValue} `)

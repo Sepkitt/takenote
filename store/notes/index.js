@@ -46,13 +46,11 @@
     },
 
     INCREMENT_NOTEGROUP_MODEL(state)  {
-      console.log('Mutation Increment')
 
       state.noteGroupModel++
       
     },
     DECREMENT_NOTEGROUP_MODEL(state) {
-      console.log('Mutation decrement')
       state.noteGroupModel--
 
       
@@ -72,11 +70,9 @@
 
   const actions = {
     increment({commit}) {
-      console.log('increment')
       commit('INCREMENT_NOTEGROUP_MODEL')
     },
     decrement({commit}) {
-      console.log('Decrement')
 
       commit('DECREMENT_NOTEGROUP_MODEL')
     }

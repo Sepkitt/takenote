@@ -1,10 +1,9 @@
 <template>
 
     <div>
-        {{model}}
-        <v-col cols="12" class="titleStyle">
-            <div class="text-center text-h2 text-uppercase ">
-                {{ notes.length < 1 ? 'No notes' : ' All notes' }} </div>
+        <v-col cols="12" class="titleStyle mb-5" >
+            <h1 class="text-center text-uppercase font-weight-regular ">
+                {{ notes.length < 1 ? 'No notes' : ' All notes' }} </h1>
 
         </v-col>
         <v-row justify="center" align="center">
@@ -13,9 +12,12 @@
                 <v-img alt="no-note" src="/no_notes.svg" />
             </v-col>
 
-            <v-col>
+            <v-col v-else>
 
                 <NoteGroup v-model="model" />
+               
+
+
 
             </v-col>
 

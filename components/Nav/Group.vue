@@ -1,7 +1,7 @@
 <template>
     <v-card class="mx-auto" color="transparent" flat>
-        <v-row>
-            <v-col class="pa-5" v-for="nav in navigation" :key="nav.index">
+        <v-row dense no-gutters>
+            <v-col  v-for="nav in navigation" :key="nav.index">
 
                 <NavBtn :title="nav.title" :icon="nav.icon" @click="!nav.path ? nav.click(nav) : navigate(nav)"
                     :to="nav.path" :path="nav.path" />
@@ -103,7 +103,6 @@ export default {
                 return n.visible
 
             })
-            console.log({ checkVisibility })
             return checkVisibility
 
 
@@ -126,8 +125,7 @@ export default {
             // Subscribe to store updates
 
             this.$store.subscribe((mutation, state) => {
-                console.log({ mutation })
-                console.log({ state })
+          
                 localStorage.setItem('store', JSON.stringify(state));
 
 

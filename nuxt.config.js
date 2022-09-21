@@ -5,7 +5,11 @@ export default {
 
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-
+  loadingIndicator: {
+    name: 'rotating-plane',
+    color: '#6c63ff',
+    background: '#151B27'
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - takenote',
@@ -65,7 +69,6 @@ export default {
     treeShake: true,
     optionsPath: "~plugins/vuetify.js",  
   },
-
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

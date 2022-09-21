@@ -1,15 +1,18 @@
 <template>
   <v-app id="bg">
+
     <v-main>
       <v-container fill-height>
+        <v-row dense justify="center">
+          <nuxt />
+        </v-row>
 
-        <nuxt />
 
 
       </v-container>
 
     </v-main>
-    <v-footer color="transparent" absolute class="mb-16">
+    <v-footer color="background" class="pa-3"  :fixed="$vuetify.breakpoint.xsOnly ? true : false">
       <NavGroup @nextNote="increment()" @prevNote="decrement()" />
     </v-footer>
   </v-app>
@@ -20,29 +23,12 @@
 import { mapActions } from 'vuex'
 
 export default {
-  data() {
-    return {
-
-    }
-  },
 
   methods: {
     ...mapActions('notes', [
       'increment',
       'decrement'
     ]),
-  },
-
-  computed: {
-    // theme() {
-    //   if (localStorage.getItem("store")) {
-    //     let local = JSON.parse(localStorage.getItem("store"));
-    //     let { useDarkMode } = local.app
-    //     return useDarkMode
-
-    //   }
-    //   return true
-    // }
   },
 
   beforeCreate() {
@@ -53,36 +39,7 @@ export default {
     this.$store.commit('notes/INITIALIZE_STATE_THEME');
 
   },
-  mounted() {
-    // this.theme
 
-
-
-
-    //todo - keep the state of the theme
-    // const local = JSON.parse(localStorage.getItem("store"));
-    // const { useDarkMode } = local.app
-    // console.log(useDarkMode)
-
-
-    // if (useDarkMode === true) {
-    //     this.$vuetify.theme.dark = true;
-    // }
-    // else
-    //     this.$vuetify.theme.dark = false
-
-    // const theme = this.$store.getters['app/getTheme']
-    // console.log({theme})
-
-    // if (theme) {
-    //     if (theme === 'true') {
-    //         this.$vuetify.theme.dark = true
-    //     } else {
-    //         this.$vuetify.theme.dark = false
-    //     }
-    // }
-
-  },
 
 }
 
@@ -98,6 +55,35 @@ html {
   overflow-y: auto !important;
 }
 
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #151B27;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+  background-color: #151B27;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #6871c7;
+  background-image: gradient(linear,
+      0 0,
+      0 100%,
+      color-stop(0.5, rgba(255, 255, 255, 0.2)),
+      color-stop(0.5, transparent),
+      to(transparent));
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
 
 /* #app {
     font-family: Helvetica;

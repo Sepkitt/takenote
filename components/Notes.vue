@@ -1,11 +1,11 @@
 <template>
     <v-row justify="center">
 
-        <v-col v-for="note in notes" :key="note.index" cols="12" sm="6" md="4">
+        <v-col v-for="note in notes" :key="note.index"  v-bind="$attrs" v-on="$listeners">
 
             <nuxt-link :to="`/notes/${note.title}`">
 
-                <v-card class="noteCard" flat height="136px" width="500px" color="itemBgColor">
+                <v-card class="noteCard" flat height="136px" width="100vw" color="itemBgColor">
                     <v-row no-gutters>
                         <v-col class="d-flex justify-end pa-2">
                             <v-icon color="primary" v-text="'la-edit'" large />
@@ -29,6 +29,7 @@
 
 <script>
 export default {
+    inheritAttrs: false,
     name: 'Notes',
     props: {
         notes: {

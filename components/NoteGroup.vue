@@ -1,15 +1,22 @@
 <template>
-    <v-row align="center" justify="center" dense>
+    <v-row align="center" justify="center" dense >
+        <v-col v-if="$vuetify.breakpoint.xsOnly" cols="10" >
+            <Notes :notes="notes" cols="12" sm="6" md="4" />
 
+        </v-col>
         <v-col cols="8">
+
             <v-window v-model="model" :show-arrows="false" height="100%">
                 <v-window-item v-for="(page, pageIndex) in noteGroup.length" :key="pageIndex">
 
-                    <Notes :notes="noteGroup[pageIndex]" />
+                    <Notes :notes="noteGroup[pageIndex]" cols="12" sm="6" md="4" />
 
                 </v-window-item>
             </v-window>
         </v-col>
+
+
+
     </v-row>
 
 </template>

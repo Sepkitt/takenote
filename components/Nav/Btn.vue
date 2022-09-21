@@ -10,7 +10,7 @@
             </v-col>
 
             <v-col cols="12">
-                <div :class="isActive" class=" text-center text--upper">{{title}}</div>
+                <div :class="isActive" class="caption text-center text-uppercase ">{{title}}</div>
 
             </v-col>
         </v-row>

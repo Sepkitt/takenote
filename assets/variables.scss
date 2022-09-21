@@ -73,5 +73,13 @@ $material-dark: map-merge($material-dark, $theme-colors);
 
 // @import '~vuetify/src/components/VBtn/_variables.scss';
 .noteCard {
-  filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.16));
+  filter: drop-shadow(0px 3px 10px rgba(0, 0, 0, 0.16));
+}
+
+.mainInputField {
+  // background: var(--v-keypadBtn-base) !important;
+  // color: var(--v-bright-base) !important;
+  // border-radius: 5px !important;
+ box-shadow: inset 0px 3px 11px  rgb(0, 0, 0, 40%) !important;
+ 
 }

@@ -1,8 +1,5 @@
 <template>
-    <div>
-        show create form if ID is not visible
-        <NotesForm @save="saveNote" v-model="editNote" />
-    </div>
+    <NotesForm @save="saveNote" v-model="editNote" />
 </template>
 
 <script>
@@ -24,17 +21,15 @@ export default {
             return this.$store.getters['notes/getNoteByTitle'](this.$route.params.title)
         },
         editNote() {
-              let note = {...this.getNote}
-            console.log({note})
+            let note = { ...this.getNote }
             return note
         }
     },
 
     methods: {
         saveNote() {
- 
+
             this.$store.commit('notes/UPDATE_NOTE', this.editNote)
-            console.log('Edit note',this.editNote)
             this.$nextTick(() => {
                 this.$router.push('/notes')
             })
