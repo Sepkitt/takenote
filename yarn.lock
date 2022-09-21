@@ -1716,10 +1716,10 @@
   resolved "https://registry.yarnpkg.com/@tiptap/extension-bold/-/extension-bold-2.0.0-beta.195.tgz#aa7c88860d825b0460ce38d73ea2546717f16fc8"
   integrity sha512-LD1xd5B0VYQ+6rmeb7weSziPcTcKlSGTftU7sEfR02LgDfkI4qEN/Km6madNVItwO++qceCIaDfVazRSGfZU3A==
 
-"@tiptap/extension-bubble-menu@^2.0.0-beta.195":
-  version "2.0.0-beta.195"
-  resolved "https://registry.yarnpkg.com/@tiptap/extension-bubble-menu/-/extension-bubble-menu-2.0.0-beta.195.tgz#9d2840d93ac3097bd627fa0a354c09289693b53d"
-  integrity sha512-c255QZCGylFAtZrF56Qsh0FB88OjnVIM/xohgs+PSWZN8h0aR1GIa6V6/cJDIxw4hbarI/7zi+GOraQRbvbzIA==
+"@tiptap/extension-bubble-menu@^2.0.0-beta.196":
+  version "2.0.0-beta.196"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-bubble-menu/-/extension-bubble-menu-2.0.0-beta.196.tgz#73869a4e0ba89208d7f43e82914fd55a86e1ba1b"
+  integrity sha512-4WC4UoJBVgNWOq5mIGOA3ouPToJi+pK6LLjUnmrCw8J9LukueV0nuR2rpPr59RZ2F8obm1O/sqqT1xu/SImoOQ==
   dependencies:
     prosemirror-state "1.4.1"
     prosemirror-view "1.26.2"
@@ -1754,10 +1754,10 @@
   dependencies:
     prosemirror-dropcursor "1.5.0"
 
-"@tiptap/extension-floating-menu@^2.0.0-beta.195":
-  version "2.0.0-beta.195"
-  resolved "https://registry.yarnpkg.com/@tiptap/extension-floating-menu/-/extension-floating-menu-2.0.0-beta.195.tgz#8ae1c1390413342591579088f4f9c4d3c038a18f"
-  integrity sha512-Edc0Cq02Y4HnI0gGJOBR8ZHNoLuTPRWTMxTaQt7fQchdx3bnNlxDw1X0R8hTD+esuGt085aHQjdRywTIsGKjdA==
+"@tiptap/extension-floating-menu@^2.0.0-beta.196":
+  version "2.0.0-beta.196"
+  resolved "https://registry.yarnpkg.com/@tiptap/extension-floating-menu/-/extension-floating-menu-2.0.0-beta.196.tgz#9d06973916abe526e775c43826145558af42a7d7"
+  integrity sha512-4qJHmCsK5KcmG5qDi6dwLuJcQ/iw/SuKYcBMiUxllrzM+zswP4nxFuyDzpVGsmoXR1gH8g79lEbuqb81VdIpEA==
   dependencies:
     prosemirror-state "1.4.1"
     prosemirror-view "1.26.2"
@@ -1849,13 +1849,13 @@
     "@tiptap/extension-strike" "^2.0.0-beta.195"
     "@tiptap/extension-text" "^2.0.0-beta.195"
 
-"@tiptap/vue-2@^2.0.0-beta.195":
-  version "2.0.0-beta.195"
-  resolved "https://registry.yarnpkg.com/@tiptap/vue-2/-/vue-2-2.0.0-beta.195.tgz#72b7069da2eca2ff96cdcdeeb6ce22cb93656677"
-  integrity sha512-W+ocWuoZpLuxyTg1bFSYpVwT536PmvlRopQr9OT3WrdsHb03CNKrDXANcIavIfR5UYFEQ3AL8vJeFh+n6JpNqw==
+"@tiptap/vue-2@^2.0.0-beta.196":
+  version "2.0.0-beta.196"
+  resolved "https://registry.yarnpkg.com/@tiptap/vue-2/-/vue-2-2.0.0-beta.196.tgz#130e534b4e33b3af26deb97aa85ab48dd3fe818a"
+  integrity sha512-rxz38oWKlxyTHCLt3nJhgXL+J+XYW9J1rZvAl5b7zi7rmXeCTLzx9kuBFb1vqaG0oQ9l1F6PBzljYThX2/LXJw==
   dependencies:
-    "@tiptap/extension-bubble-menu" "^2.0.0-beta.195"
-    "@tiptap/extension-floating-menu" "^2.0.0-beta.195"
+    "@tiptap/extension-bubble-menu" "^2.0.0-beta.196"
+    "@tiptap/extension-floating-menu" "^2.0.0-beta.196"
     prosemirror-view "1.26.2"
 
 "@tootallnate/once@1":
