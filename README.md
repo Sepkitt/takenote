@@ -1,5 +1,8 @@
 # takenote
 
+## Live app
+(https://takennote.netlify.app/)
+
 ## Build Setup
 
 ```bash
