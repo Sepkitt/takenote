@@ -2,13 +2,13 @@
 
     <div>
         <v-col cols="12" class="titleStyle mb-5" >
-            <h1 class="text-center text-uppercase font-weight-regular ">
+            <h1 class="text-center text-uppercase text--text font-weight-regular ">
                 {{ notes.length < 1 ? 'No notes' : ' All notes' }} </h1>
 
         </v-col>
         <v-row justify="center" align="center">
 
-            <v-col cols="4" class="d-flex align-center" v-if="notes.length < 1">
+            <v-col cols="8" class="d-flex align-center" v-if="notes.length < 1">
                 <v-img alt="no-note" src="/no_notes.svg" />
             </v-col>
 

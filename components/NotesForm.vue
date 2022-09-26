@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center" class="mt-5">
-    <h1 class="text-center text-uppercase font-weight-regular ">
+    <h1 class="text-center text--text text-uppercase font-weight-regular ">
       {{$route.path === '/notes/new' ? 'Create Note' : 'Edit Note' }}</h1>
 
     <v-col cols="12" class="d-flex justify-center align-center">
@@ -8,13 +8,13 @@
 
         <v-form ref="form" v-model="form">
 
-          <v-text-field ref="noteTitle" background-color="itemBgColor" required class="textField" solo
+          <v-text-field id="noteTitle" ref="noteTitle" background-color="itemBgColor" required class="textField" solo
             v-model="inputVal.title" placeholder="Title" @keydown.enter="focusOnNoteContent" />
 
-          <v-textarea class="textField" background-color="itemBgColor" :rows="rows" no-resize id="noteContent"
+          <v-textarea id="noteContent" class="textField" background-color="itemBgColor" :rows="rows" no-resize
             ref="noteContent" v-model="inputVal.content" required solo placeholder="Notes" />
 
-          <v-btn :disabled="inputVal.content.length < 1 || inputVal.title.length < 1" color="primary"
+          <v-btn id="saveNote" :disabled="inputVal.content.length < 1 || inputVal.title.length < 1" color="primary"
             class="note-saveBtn" @click="$emit('save', value)">
             Save
           </v-btn>
