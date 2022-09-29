@@ -9,8 +9,8 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "unit": "jest",
-    "e2e": "cypress open --browser chrome",
-    "e2e:silent": "cypress run --record --key 1c09d9b7-982e-45b3-af1a-1c9af7af78c0"
+    "e2e": "cypress open --project test --browser chrome",
+    "e2e:silent": "cypress run  --project test  --record --key 1c09d9b7-982e-45b3-af1a-1c9af7af78c0"
   },
   "dependencies": {
     "@canvas-fonts/helvetica": "^1.0.4",

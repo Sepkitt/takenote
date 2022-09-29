@@ -3,7 +3,7 @@
         <v-row dense no-gutters>
             <v-col  v-for="nav in navigation" :key="nav.index">
 
-                <NavBtn :title="nav.title" :icon="nav.icon" @click="!nav.path ? nav.click(nav) : navigate(nav)"
+                <NavBtn v-if="nav.visible" :title="nav.title" :icon="nav.icon" @click="!nav.path ? nav.click(nav) : navigate(nav)"
                     :to="nav.path" :path="nav.path" />
             </v-col>
         </v-row>
@@ -46,8 +46,8 @@ export default {
             const nav = [
                 { title: "Home", icon: "la-home", path: '/', visible: true },
                 { title: "Notes", icon: "la-newspaper", path: '/notes', visible: true },
-                { title: "Prev", icon: "la-angle-left", click: this.emitNoteClick, visible: true },
-                { title: "Next", icon: "la-angle-right", click: this.emitNoteClick, visible: true },
+                { title: "Prev", icon: "la-angle-left", click: this.emitNoteClick, visible: false },
+                { title: "Next", icon: "la-angle-right", click: this.emitNoteClick, visible: false },
                 { title: "New", icon: "la-notes-medical", path: '/notes/new', visible: true },
                 { title: name, icon: icon, click: this.toggleTheme, visible: true }
             ];
@@ -60,12 +60,11 @@ export default {
 
                 if (this.$route.path !== '/notes') {
                     n.title === 'Next' || n.title === 'Prev'
-                        ? n.visible = false : true
-
+                        ? n.visible = false : n.visible = true
 
                 }
 
-                // Hide Nex and Prev when Notes are less than 7
+                // Hide Next and Prev when Notes are less than 7
                 else if (this.$route.path === '/notes') {
                     const model = this.$store.state.notes.noteGroupModel
 

@@ -29,6 +29,7 @@
     },
     DELETE_NOTE(state, id) {
       let notes = state.notes.filter(note => note.id != id)
+      console.log({id})
       state.notes = notes
     },
     UPDATE_NOTE(state, payload)  {

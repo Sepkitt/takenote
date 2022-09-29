@@ -9,7 +9,7 @@
             <v-window v-model="model" :show-arrows="false" height="100%">
                 <v-window-item v-for="(page, pageIndex) in noteGroup.length" :key="pageIndex">
 
-                    <Notes :notes="noteGroup[pageIndex]" cols="12" sm="6" md="4" />
+                    <Notes @delete="deleteNote" :notes="noteGroup[pageIndex]" cols="12" sm="6" md="4" />
 
                 </v-window-item>
             </v-window>
@@ -60,6 +60,13 @@ export default {
 
 
     },
+    methods: {
+        deleteNote(note) {
+            this.$store.commit('notes/DELETE_NOTE', note.id)
+            console.log(note)
+
+        }
+    }
 
 }
 </script>
